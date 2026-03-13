@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import HealthKit
 
 // MARK: - In-Memory Set Log
 
@@ -17,6 +18,7 @@ struct WorkoutLogView: View {
 
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
+    @Environment(HealthKitManager.self) private var healthKit
 
     @State private var startTime = Date.now
     @State private var elapsedSeconds = 0
@@ -151,10 +153,11 @@ struct WorkoutLogView: View {
     }
 
     private func saveSession() {
+        let endTime = Date()
         let session = WorkoutSession(
             planName: plan.name,
             startTime: startTime,
-            endTime: Date.now,
+            endTime: endTime,
             isCompleted: true
         )
         context.insert(session)
@@ -176,6 +179,16 @@ struct WorkoutLogView: View {
         }
 
         try? context.save()
+
+        // Save workout to HealthKit in background; silently ignore errors
+        Task {
+            try? await healthKit.saveWorkout(
+                planName: plan.name,
+                startTime: startTime,
+                endTime: endTime
+            )
+        }
+
         dismiss()
     }
 }

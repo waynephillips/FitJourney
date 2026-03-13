@@ -31,6 +31,7 @@
 		2A000016000000000000000F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000019000000000000000F /* LargeButton.swift */; };
 		2A000017000000000000000F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001A000000000000000F /* HapticManager.swift */; };
 		2A000018000000000000000F /* RestTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001B000000000000000F /* RestTimerView.swift */; };
+		2A000019000000000000000F /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001C000000000000000F /* HealthKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		1A000019000000000000000F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		1A00001A000000000000000F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		1A00001B000000000000000F /* RestTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerView.swift; sourceTree = "<group>"; };
+		1A00001C000000000000000F /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				1A00000E000000000000000F /* WorkoutDataSeeder.swift */,
+				1A00001C000000000000000F /* HealthKitManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				2A000016000000000000000F /* LargeButton.swift in Sources */,
 				2A000017000000000000000F /* HapticManager.swift in Sources */,
 				2A000018000000000000000F /* RestTimerView.swift in Sources */,
+				2A000019000000000000000F /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
