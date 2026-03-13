@@ -2,6 +2,14 @@ import Foundation
 import HealthKit
 import SwiftUI
 
+// MARK: - WeightDataPoint
+// Identifiable wrapper used by Dashboard weight chart.
+
+struct WeightDataPoint: Identifiable {
+    let id: Date   // date is unique per sample
+    let lbs: Double
+}
+
 // MARK: - HealthKitManager
 // @Observable @MainActor singleton-style class providing HealthKit read/write
 // for FitJourney. Injected via SwiftUI Environment from FitJourneyApp.
@@ -20,7 +28,7 @@ final class HealthKitManager {
     // MARK: - Fetched Values
 
     var latestWeightLbs: Double?
-    var weightHistory: [(date: Date, lbs: Double)] = []
+    var weightHistory: [WeightDataPoint] = []
     var todaySteps: Int = 0
     var todayCalories: Double = 0
 
@@ -103,7 +111,7 @@ final class HealthKitManager {
             }
             store.execute(query)
         }
-        weightHistory = pairs.map { (date: $0.0, lbs: $0.1) }
+        weightHistory = pairs.map { WeightDataPoint(id: $0.0, lbs: $0.1) }
     }
 
     func saveWeight(_ lbs: Double) async throws {
