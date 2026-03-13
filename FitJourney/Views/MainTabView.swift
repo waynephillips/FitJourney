@@ -25,9 +25,18 @@ struct MainTabView: View {
                 .tabItem { Label("Workouts", systemImage: "dumbbell.fill") }
                 .tag(Tab.workouts)
 
-            WorkoutLogView()
-                .tabItem { Label("Log", systemImage: "plus.circle.fill") }
-                .tag(Tab.log)
+            NavigationStack {
+                ContentUnavailableView(
+                    "Start from Workouts",
+                    systemImage: "dumbbell",
+                    description: Text("Go to the Workouts tab, pick a plan, and tap \"Start This Workout\".")
+                )
+                .background(ColorTheme.background)
+                .navigationTitle("Log")
+                .navigationBarTitleDisplayMode(.large)
+            }
+            .tabItem { Label("Log", systemImage: "plus.circle.fill") }
+            .tag(Tab.log)
 
             FitProgressView()
                 .tabItem { Label("Progress", systemImage: "chart.bar.fill") }

@@ -6,6 +6,8 @@ struct WorkoutDetailView: View {
 
     @State private var checkedExercises: Set<UUID> = []
     @State private var showStartWorkout = false
+    @State private var showRestTimer = false
+    @State private var timerManager = RestTimerManager()
 
     private var sortedExercises: [Exercise] {
         plan.exercises.sorted { $0.sortOrder < $1.sortOrder }
@@ -31,8 +33,12 @@ struct WorkoutDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) { bottomBar }
         .navigationDestination(isPresented: $showStartWorkout) {
-            // WorkoutLogView — fully implemented in Step 6
-            WorkoutLogView()
+            WorkoutLogView(plan: plan)
+        }
+        .sheet(isPresented: $showRestTimer) {
+            RestTimerView(manager: timerManager)
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
         }
     }
 
@@ -132,6 +138,10 @@ struct WorkoutDetailView: View {
                 LargeButton("Start This Workout", icon: "play.fill") {
                     HapticManager.medium()
                     showStartWorkout = true
+                }
+                LargeButton("Rest Timer", icon: "timer", color: ColorTheme.secondaryText) {
+                    HapticManager.soft()
+                    showRestTimer = true
                 }
             }
             .padding(.horizontal)

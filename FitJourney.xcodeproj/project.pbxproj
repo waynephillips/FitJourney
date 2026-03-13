@@ -30,6 +30,7 @@
 		2A000015000000000000000F /* KneeSafetyBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000018000000000000000F /* KneeSafetyBadge.swift */; };
 		2A000016000000000000000F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000019000000000000000F /* LargeButton.swift */; };
 		2A000017000000000000000F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001A000000000000000F /* HapticManager.swift */; };
+		2A000018000000000000000F /* RestTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001B000000000000000F /* RestTimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		1A000018000000000000000F /* KneeSafetyBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KneeSafetyBadge.swift; sourceTree = "<group>"; };
 		1A000019000000000000000F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		1A00001A000000000000000F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		1A00001B000000000000000F /* RestTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				1A000011000000000000000F /* WorkoutListView.swift */,
 				1A000016000000000000000F /* WorkoutDetailView.swift */,
 				1A000017000000000000000F /* ExerciseCardView.swift */,
+				1A00001B000000000000000F /* RestTimerView.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				2A000015000000000000000F /* KneeSafetyBadge.swift in Sources */,
 				2A000016000000000000000F /* LargeButton.swift in Sources */,
 				2A000017000000000000000F /* HapticManager.swift in Sources */,
+				2A000018000000000000000F /* RestTimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
