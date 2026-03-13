@@ -18,6 +18,13 @@
 		2A000009000000000000000F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A00000A000000000000000F /* Assets.xcassets */; };
 		2A00000A000000000000000F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A00000D000000000000000F /* HealthKit.framework */; };
 		2A00000B000000000000000F /* WorkoutDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00000E000000000000000F /* WorkoutDataSeeder.swift */; };
+		2A00000C000000000000000F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00000F000000000000000F /* MainTabView.swift */; };
+		2A00000D000000000000000F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000010000000000000000F /* DashboardView.swift */; };
+		2A00000E000000000000000F /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000011000000000000000F /* WorkoutListView.swift */; };
+		2A00000F000000000000000F /* WorkoutLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000012000000000000000F /* WorkoutLogView.swift */; };
+		2A000010000000000000000F /* FitProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000013000000000000000F /* FitProgressView.swift */; };
+		2A000011000000000000000F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000014000000000000000F /* SettingsView.swift */; };
+		2A000012000000000000000F /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000015000000000000000F /* ColorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +42,13 @@
 		1A00000C000000000000000F /* FitJourney.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitJourney.entitlements; sourceTree = "<group>"; };
 		1A00000D000000000000000F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		1A00000E000000000000000F /* WorkoutDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataSeeder.swift; sourceTree = "<group>"; };
+		1A00000F000000000000000F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		1A000010000000000000000F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		1A000011000000000000000F /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
+		1A000012000000000000000F /* WorkoutLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLogView.swift; sourceTree = "<group>"; };
+		1A000013000000000000000F /* FitProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitProgressView.swift; sourceTree = "<group>"; };
+		1A000014000000000000000F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1A000015000000000000000F /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +79,8 @@
 				1A000003000000000000000F /* ContentView.swift */,
 				GR000003000000000000000F /* Models */,
 				GR000006000000000000000F /* Services */,
+				GR000007000000000000000F /* Views */,
+				GR00000D000000000000000F /* Utilities */,
 				1A00000A000000000000000F /* Assets.xcassets */,
 				1A00000B000000000000000F /* Info.plist */,
 				1A00000C000000000000000F /* FitJourney.entitlements */,
@@ -107,6 +123,67 @@
 				1A00000E000000000000000F /* WorkoutDataSeeder.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		GR000007000000000000000F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A00000F000000000000000F /* MainTabView.swift */,
+				GR000008000000000000000F /* Dashboard */,
+				GR000009000000000000000F /* Workouts */,
+				GR00000A000000000000000F /* Log */,
+				GR00000B000000000000000F /* Progress */,
+				GR00000C000000000000000F /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		GR000008000000000000000F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				1A000010000000000000000F /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		GR000009000000000000000F /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				1A000011000000000000000F /* WorkoutListView.swift */,
+			);
+			path = Workouts;
+			sourceTree = "<group>";
+		};
+		GR00000A000000000000000F /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				1A000012000000000000000F /* WorkoutLogView.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		GR00000B000000000000000F /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				1A000013000000000000000F /* FitProgressView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		GR00000C000000000000000F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1A000014000000000000000F /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		GR00000D000000000000000F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1A000015000000000000000F /* ColorTheme.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +264,13 @@
 				2A000007000000000000000F /* ExerciseLog.swift in Sources */,
 				2A000008000000000000000F /* BodyMetric.swift in Sources */,
 				2A00000B000000000000000F /* WorkoutDataSeeder.swift in Sources */,
+				2A00000C000000000000000F /* MainTabView.swift in Sources */,
+				2A00000D000000000000000F /* DashboardView.swift in Sources */,
+				2A00000E000000000000000F /* WorkoutListView.swift in Sources */,
+				2A00000F000000000000000F /* WorkoutLogView.swift in Sources */,
+				2A000010000000000000000F /* FitProgressView.swift in Sources */,
+				2A000011000000000000000F /* SettingsView.swift in Sources */,
+				2A000012000000000000000F /* ColorTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
