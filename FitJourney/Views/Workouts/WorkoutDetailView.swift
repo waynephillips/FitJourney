@@ -4,10 +4,18 @@ import SwiftData
 struct WorkoutDetailView: View {
     let plan: WorkoutPlan
 
+    @Environment(\.modelContext) private var context
+
     @State private var checkedExercises: Set<UUID> = []
     @State private var showStartWorkout = false
     @State private var showRestTimer = false
     @State private var timerManager = RestTimerManager()
+
+    // Edit / manage state
+    @State private var showEditWorkout = false
+    @State private var showAddExercise = false
+    @State private var exerciseToEdit: Exercise? = nil
+    @State private var exerciseToDelete: Exercise? = nil
 
     private var sortedExercises: [Exercise] {
         plan.exercises.sorted { $0.sortOrder < $1.sortOrder }
@@ -32,6 +40,25 @@ struct WorkoutDetailView: View {
         .navigationTitle(plan.dayOfWeek)
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) { bottomBar }
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button {
+                    HapticManager.selection()
+                    showEditWorkout = true
+                } label: {
+                    Text("Edit")
+                        .font(.system(size: 16, weight: .semibold))
+                }
+                Button {
+                    HapticManager.selection()
+                    showAddExercise = true
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 18, weight: .semibold))
+                }
+                .accessibilityLabel("Add exercise")
+            }
+        }
         .navigationDestination(isPresented: $showStartWorkout) {
             WorkoutLogView(plan: plan)
         }
@@ -39,6 +66,34 @@ struct WorkoutDetailView: View {
             RestTimerView(manager: timerManager)
                 .presentationDetents([.medium])
                 .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: $showEditWorkout) {
+            EditWorkoutView(plan: plan)
+        }
+        .sheet(isPresented: $showAddExercise) {
+            AddExerciseView(plan: plan)
+        }
+        .sheet(item: $exerciseToEdit) { exercise in
+            EditExerciseView(plan: plan, exercise: exercise)
+        }
+        .alert(
+            "Remove \"\(exerciseToDelete?.name ?? "")\"?",
+            isPresented: Binding(
+                get: { exerciseToDelete != nil },
+                set: { if !$0 { exerciseToDelete = nil } }
+            )
+        ) {
+            Button("Remove", role: .destructive) {
+                if let ex = exerciseToDelete {
+                    checkedExercises.remove(ex.id)
+                    context.delete(ex)
+                    HapticManager.medium()
+                }
+                exerciseToDelete = nil
+            }
+            Button("Cancel", role: .cancel) { exerciseToDelete = nil }
+        } message: {
+            Text("This exercise will be permanently removed from the workout.")
         }
     }
 
@@ -50,9 +105,11 @@ struct WorkoutDetailView: View {
                 .font(.system(size: 26, weight: .bold))
                 .foregroundStyle(ColorTheme.primaryText)
 
-            Text(plan.focusArea)
-                .font(.system(size: 17))
-                .foregroundStyle(ColorTheme.secondaryText)
+            if !plan.focusArea.isEmpty {
+                Text(plan.focusArea)
+                    .font(.system(size: 17))
+                    .foregroundStyle(ColorTheme.secondaryText)
+            }
 
             HStack(spacing: 16) {
                 Label(plan.duration, systemImage: "clock")
@@ -124,6 +181,18 @@ struct WorkoutDetailView: View {
                     isChecked: checkedExercises.contains(exercise.id),
                     onToggle: { toggle(exercise) }
                 )
+                .contextMenu {
+                    Button {
+                        exerciseToEdit = exercise
+                    } label: {
+                        Label("Edit Exercise", systemImage: "pencil")
+                    }
+                    Button(role: .destructive) {
+                        exerciseToDelete = exercise
+                    } label: {
+                        Label("Remove from Workout", systemImage: "trash")
+                    }
+                }
             }
         }
         .padding(.horizontal)

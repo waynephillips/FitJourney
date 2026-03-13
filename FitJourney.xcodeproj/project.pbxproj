@@ -32,6 +32,10 @@
 		2A000017000000000000000F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001A000000000000000F /* HapticManager.swift */; };
 		2A000018000000000000000F /* RestTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001B000000000000000F /* RestTimerView.swift */; };
 		2A000019000000000000000F /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001C000000000000000F /* HealthKitManager.swift */; };
+		2A00001D000000000000000F /* PlanetFitnessExerciseLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001D000000000000000F /* PlanetFitnessExerciseLibrary.swift */; };
+		2A00001E000000000000000F /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001E000000000000000F /* EditWorkoutView.swift */; };
+		2A00001F000000000000000F /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001F000000000000000F /* AddExerciseView.swift */; };
+		2A000020000000000000000F /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000020000000000000000F /* EditExerciseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,10 @@
 		1A00001A000000000000000F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		1A00001B000000000000000F /* RestTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerView.swift; sourceTree = "<group>"; };
 		1A00001C000000000000000F /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		1A00001D000000000000000F /* PlanetFitnessExerciseLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetFitnessExerciseLibrary.swift; sourceTree = "<group>"; };
+		1A00001E000000000000000F /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
+		1A00001F000000000000000F /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
+		1A000020000000000000000F /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,7 @@
 			children = (
 				1A00000E000000000000000F /* WorkoutDataSeeder.swift */,
 				1A00001C000000000000000F /* HealthKitManager.swift */,
+				1A00001D000000000000000F /* PlanetFitnessExerciseLibrary.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -169,6 +178,9 @@
 				1A000016000000000000000F /* WorkoutDetailView.swift */,
 				1A000017000000000000000F /* ExerciseCardView.swift */,
 				1A00001B000000000000000F /* RestTimerView.swift */,
+				1A00001E000000000000000F /* EditWorkoutView.swift */,
+				1A00001F000000000000000F /* AddExerciseView.swift */,
+				1A000020000000000000000F /* EditExerciseView.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -243,7 +255,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					NT000001000000000000000F = {
 						CreatedOnToolsVersion = 15.0;
@@ -307,6 +319,10 @@
 				2A000017000000000000000F /* HapticManager.swift in Sources */,
 				2A000018000000000000000F /* RestTimerView.swift in Sources */,
 				2A000019000000000000000F /* HealthKitManager.swift in Sources */,
+				2A00001D000000000000000F /* PlanetFitnessExerciseLibrary.swift in Sources */,
+				2A00001E000000000000000F /* EditWorkoutView.swift in Sources */,
+				2A00001F000000000000000F /* AddExerciseView.swift in Sources */,
+				2A000020000000000000000F /* EditExerciseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +353,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -348,6 +365,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5ZVPXESM53;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -371,6 +389,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -400,6 +419,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -411,6 +431,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5ZVPXESM53;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -426,6 +447,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -437,9 +459,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FitJourney/FitJourney.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = FitJourney/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -450,6 +472,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.fitjourney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -464,7 +487,6 @@
 				CODE_SIGN_ENTITLEMENTS = FitJourney/FitJourney.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = FitJourney/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -503,7 +525,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = PJ000001000000000000000F /* Project object */;
 }
