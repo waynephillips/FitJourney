@@ -282,6 +282,8 @@ struct FitProgressView: View {
                                 Image(systemName: unlocked ? "checkmark.seal.fill" : "seal")
                                     .font(.system(size: 22, weight: .semibold))
                                     .foregroundStyle(unlocked ? ColorTheme.green : ColorTheme.secondaryText)
+                                    .symbolEffect(.bounce, value: unlocked)
+                                    .animation(.spring(response: 0.4, dampingFraction: 0.55), value: unlocked)
                             }
                             Text("-\(Int(milestone))")
                                 .font(.system(size: 15, weight: .bold).monospacedDigit())
@@ -292,6 +294,8 @@ struct FitProgressView: View {
                         }
                         .frame(width: 68)
                         .opacity(unlocked ? 1.0 : 0.55)
+                        .scaleEffect(unlocked ? 1.0 : 0.95)
+                        .animation(.spring(response: 0.4, dampingFraction: 0.6), value: unlocked)
                     }
                 }
                 .padding(.horizontal, 2)
@@ -336,6 +340,8 @@ struct FitProgressView: View {
             Text(value)
                 .font(.system(size: 22, weight: .bold).monospacedDigit())
                 .foregroundStyle(ColorTheme.primaryText)
+                .contentTransition(.numericText())
+                .animation(.default, value: value)
             Text(label)
                 .font(.system(size: 13, weight: .medium))
                 .foregroundStyle(ColorTheme.secondaryText)

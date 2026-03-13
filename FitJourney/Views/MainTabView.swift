@@ -47,6 +47,9 @@ struct MainTabView: View {
                 .tag(Tab.settings)
         }
         .tint(ColorTheme.blue)
+        .onChange(of: selectedTab) { _, _ in
+            HapticManager.selection()
+        }
     }
 
     // MARK: - Appearance

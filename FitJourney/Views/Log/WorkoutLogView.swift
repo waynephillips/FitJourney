@@ -66,6 +66,8 @@ struct WorkoutLogView: View {
                     Text(elapsedString)
                         .font(.system(size: 13, weight: .medium).monospacedDigit())
                         .foregroundStyle(ColorTheme.blue)
+                        .contentTransition(.numericText())
+                        .animation(.default, value: elapsedSeconds)
                 }
             }
         }
@@ -81,10 +83,12 @@ struct WorkoutLogView: View {
             )
         }
         .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true  // keep screen on during workout
             initLogs()
             startTimer()
         }
         .onDisappear {
+            UIApplication.shared.isIdleTimerDisabled = false
             timerTask?.cancel()
         }
     }
@@ -298,7 +302,9 @@ struct SetEntryRow: View {
             // Done checkbox — 56pt gym-safe tap target
             Button {
                 HapticManager.selection()
-                log.isCompleted.toggle()
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.55)) {
+                    log.isCompleted.toggle()
+                }
                 if log.isCompleted { HapticManager.success() }
             } label: {
                 ZStack {
@@ -316,11 +322,14 @@ struct SetEntryRow: View {
                         Image(systemName: "checkmark")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundStyle(.white)
+                            .transition(.scale.combined(with: .opacity))
                     }
                 }
                 .frame(width: 56, height: 56)
+                .scaleEffect(log.isCompleted ? 1.0 : 1.0)
             }
             .buttonStyle(.plain)
+            .accessibilityLabel(log.isCompleted ? "Mark set as incomplete" : "Mark set as complete")
         }
     }
 }

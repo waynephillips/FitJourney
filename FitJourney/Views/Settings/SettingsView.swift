@@ -96,6 +96,8 @@ struct SettingsView: View {
                 }
             }
             .listStyle(.insetGrouped)
+            .scrollContentBackground(.hidden)
+            .background(ColorTheme.background)
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
             .onAppear { seedGoalIfNeeded() }
