@@ -17,6 +17,7 @@
 		2A000008000000000000000F /* BodyMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000009000000000000000F /* BodyMetric.swift */; };
 		2A000009000000000000000F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A00000A000000000000000F /* Assets.xcassets */; };
 		2A00000A000000000000000F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A00000D000000000000000F /* HealthKit.framework */; };
+		2A00000B000000000000000F /* WorkoutDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00000E000000000000000F /* WorkoutDataSeeder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		1A00000B000000000000000F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A00000C000000000000000F /* FitJourney.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitJourney.entitlements; sourceTree = "<group>"; };
 		1A00000D000000000000000F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		1A00000E000000000000000F /* WorkoutDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataSeeder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				1A000002000000000000000F /* FitJourneyApp.swift */,
 				1A000003000000000000000F /* ContentView.swift */,
 				GR000003000000000000000F /* Models */,
+				GR000006000000000000000F /* Services */,
 				1A00000A000000000000000F /* Assets.xcassets */,
 				1A00000B000000000000000F /* Info.plist */,
 				1A00000C000000000000000F /* FitJourney.entitlements */,
@@ -96,6 +99,14 @@
 				1A00000D000000000000000F /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		GR000006000000000000000F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1A00000E000000000000000F /* WorkoutDataSeeder.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				2A000006000000000000000F /* WorkoutSession.swift in Sources */,
 				2A000007000000000000000F /* ExerciseLog.swift in Sources */,
 				2A000008000000000000000F /* BodyMetric.swift in Sources */,
+				2A00000B000000000000000F /* WorkoutDataSeeder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
