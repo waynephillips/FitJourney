@@ -25,6 +25,11 @@
 		2A000010000000000000000F /* FitProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000013000000000000000F /* FitProgressView.swift */; };
 		2A000011000000000000000F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000014000000000000000F /* SettingsView.swift */; };
 		2A000012000000000000000F /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000015000000000000000F /* ColorTheme.swift */; };
+		2A000013000000000000000F /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000016000000000000000F /* WorkoutDetailView.swift */; };
+		2A000014000000000000000F /* ExerciseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000017000000000000000F /* ExerciseCardView.swift */; };
+		2A000015000000000000000F /* KneeSafetyBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000018000000000000000F /* KneeSafetyBadge.swift */; };
+		2A000016000000000000000F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000019000000000000000F /* LargeButton.swift */; };
+		2A000017000000000000000F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00001A000000000000000F /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +54,11 @@
 		1A000013000000000000000F /* FitProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitProgressView.swift; sourceTree = "<group>"; };
 		1A000014000000000000000F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1A000015000000000000000F /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		1A000016000000000000000F /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
+		1A000017000000000000000F /* ExerciseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardView.swift; sourceTree = "<group>"; };
+		1A000018000000000000000F /* KneeSafetyBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KneeSafetyBadge.swift; sourceTree = "<group>"; };
+		1A000019000000000000000F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
+		1A00001A000000000000000F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,7 @@
 				GR000003000000000000000F /* Models */,
 				GR000006000000000000000F /* Services */,
 				GR000007000000000000000F /* Views */,
+				GR00000E000000000000000F /* Components */,
 				GR00000D000000000000000F /* Utilities */,
 				1A00000A000000000000000F /* Assets.xcassets */,
 				1A00000B000000000000000F /* Info.plist */,
@@ -150,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				1A000011000000000000000F /* WorkoutListView.swift */,
+				1A000016000000000000000F /* WorkoutDetailView.swift */,
+				1A000017000000000000000F /* ExerciseCardView.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -182,8 +195,18 @@
 			isa = PBXGroup;
 			children = (
 				1A000015000000000000000F /* ColorTheme.swift */,
+				1A00001A000000000000000F /* HapticManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		GR00000E000000000000000F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1A000018000000000000000F /* KneeSafetyBadge.swift */,
+				1A000019000000000000000F /* LargeButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +294,11 @@
 				2A000010000000000000000F /* FitProgressView.swift in Sources */,
 				2A000011000000000000000F /* SettingsView.swift in Sources */,
 				2A000012000000000000000F /* ColorTheme.swift in Sources */,
+				2A000013000000000000000F /* WorkoutDetailView.swift in Sources */,
+				2A000014000000000000000F /* ExerciseCardView.swift in Sources */,
+				2A000015000000000000000F /* KneeSafetyBadge.swift in Sources */,
+				2A000016000000000000000F /* LargeButton.swift in Sources */,
+				2A000017000000000000000F /* HapticManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

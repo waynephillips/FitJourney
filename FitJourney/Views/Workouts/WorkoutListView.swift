@@ -1,60 +1,125 @@
 import SwiftUI
 import SwiftData
 
-// Placeholder — built out fully in Step 4
 struct WorkoutListView: View {
     @Query(sort: \WorkoutPlan.sortOrder) private var plans: [WorkoutPlan]
+    @Query private var sessions: [WorkoutSession]
 
     var body: some View {
         NavigationStack {
-            List {
+            Group {
                 if plans.isEmpty {
                     ContentUnavailableView(
                         "No Workouts",
                         systemImage: "dumbbell",
-                        description: Text("Workout plans will appear here.")
+                        description: Text("Workout plans are loading…")
                     )
                 } else {
-                    ForEach(plans) { plan in
-                        workoutRow(plan)
+                    ScrollView {
+                        LazyVStack(spacing: 16) {
+                            ForEach(plans) { plan in
+                                NavigationLink(destination: WorkoutDetailView(plan: plan)) {
+                                    WorkoutPlanCard(
+                                        plan: plan,
+                                        completedThisWeek: isCompletedThisWeek(plan)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding()
                     }
                 }
             }
-            .listStyle(.insetGrouped)
+            .background(ColorTheme.background)
             .navigationTitle("Workouts")
             .navigationBarTitleDisplayMode(.large)
         }
     }
 
-    @ViewBuilder
-    private func workoutRow(_ plan: WorkoutPlan) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack {
-                Text(plan.dayOfWeek)
-                    .font(.system(size: 14, weight: .semibold))
+    private func isCompletedThisWeek(_ plan: WorkoutPlan) -> Bool {
+        let startOfWeek = Calendar.current
+            .dateInterval(of: .weekOfYear, for: .now)?.start ?? .now
+        return sessions.contains {
+            $0.planName == plan.name && $0.isCompleted && $0.date >= startOfWeek
+        }
+    }
+}
+
+// MARK: - Plan Card
+
+struct WorkoutPlanCard: View {
+    let plan: WorkoutPlan
+    let completedThisWeek: Bool
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            // Day + completion badge
+            HStack(alignment: .firstTextBaseline) {
+                Text(plan.dayOfWeek.uppercased())
+                    .font(.system(size: 13, weight: .bold))
                     .foregroundStyle(ColorTheme.blue)
-                    .textCase(.uppercase)
                 Spacer()
-                Text(plan.duration)
-                    .font(.system(size: 14))
-                    .foregroundStyle(ColorTheme.secondaryText)
+                if completedThisWeek {
+                    Label("Completed", systemImage: "checkmark.circle.fill")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(ColorTheme.green)
+                }
             }
+
+            // Name + focus
             Text(plan.name)
-                .font(.system(size: 20, weight: .bold))
+                .font(.system(size: 22, weight: .bold))
                 .foregroundStyle(ColorTheme.primaryText)
+                .multilineTextAlignment(.leading)
+
             Text(plan.focusArea)
                 .font(.system(size: 16))
                 .foregroundStyle(ColorTheme.secondaryText)
-            Text("\(plan.exerciseCount) exercises")
-                .font(.system(size: 15))
-                .foregroundStyle(ColorTheme.secondaryText)
+
+            Divider()
+
+            // Stats row
+            HStack(spacing: 0) {
+                statItem(icon: "list.bullet", label: "\(plan.exerciseCount) exercises")
+                Spacer()
+                statItem(icon: "clock", label: plan.duration)
+                Spacer()
+                if plan.hasCautionExercises {
+                    statItem(icon: "exclamationmark.triangle.fill",
+                             label: "Knee caution",
+                             color: ColorTheme.orange)
+                } else {
+                    statItem(icon: "checkmark.circle.fill",
+                             label: "Knee safe",
+                             color: ColorTheme.green)
+                }
+            }
         }
-        .padding(.vertical, 8)
-        .frame(minHeight: 56)
+        .padding(18)
+        .background(ColorTheme.adaptiveCard)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(
+                    completedThisWeek
+                        ? ColorTheme.green.opacity(0.45)
+                        : Color(UIColor.separator).opacity(0.5),
+                    lineWidth: completedThisWeek ? 2 : 1
+                )
+        )
+        .shadow(color: .black.opacity(0.07), radius: 6, x: 0, y: 2)
+    }
+
+    @ViewBuilder
+    private func statItem(icon: String, label: String, color: Color = ColorTheme.secondaryText) -> some View {
+        Label(label, systemImage: icon)
+            .font(.system(size: 14, weight: .medium))
+            .foregroundStyle(color)
     }
 }
 
 #Preview {
     WorkoutListView()
-        .modelContainer(for: [WorkoutPlan.self, Exercise.self], inMemory: true)
+        .modelContainer(for: [WorkoutPlan.self, Exercise.self, WorkoutSession.self], inMemory: true)
 }
