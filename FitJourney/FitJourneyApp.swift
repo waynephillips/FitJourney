@@ -4,6 +4,8 @@ import SwiftData
 @main
 struct FitJourneyApp: App {
 
+    @State private var healthKit = HealthKitManager()
+
     let sharedModelContainer: ModelContainer = {
         let schema = Schema([
             GoalSettings.self,
@@ -27,6 +29,7 @@ struct FitJourneyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(healthKit)
         }
         .modelContainer(sharedModelContainer)
     }

@@ -62,6 +62,10 @@ struct ExerciseCardView: View {
                 .frame(width: 56, height: 56) // full tap area
             }
             .buttonStyle(.plain)
+            .accessibilityLabel(isChecked
+                ? "Mark \(exercise.name) as incomplete"
+                : "Mark \(exercise.name) as complete")
+            .accessibilityAddTraits(.isButton)
         }
         .padding(16)
         .background(
